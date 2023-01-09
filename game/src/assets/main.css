@@ -1,0 +1,14 @@
+@import './base.css';
+
+*{
+  padding: 0;
+  margin: 0;
+}
+body{
+  background-image: url("bg.png");
+  background-size: auto 100%;
+  background-repeat: repeat-x;
+  transition: 100ms;
+  overflow: hidden;
+  height: 100vh;
+}

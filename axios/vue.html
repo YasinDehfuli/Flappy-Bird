@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/axios/dist/axios.min.js"></script>
+    <script src="node_modules/vue/dist/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <table style="width: 100%" border="1">
+        <tr>
+            <th>
+                id
+            </th>
+            <th>
+                user id
+            </th>
+            <th>
+                title
+            </th>
+            <th>
+                body
+            </th>
+        </tr>
+        <tr v-for="post in posts">
+            <td>
+                {{post.id}}
+            </td>
+            <td>
+                {{post.userId}}
+            </td>
+            <td>
+                {{post.title}}
+            </td>
+            <td>
+                {{post.body}}
+            </td>
+        </tr>
+    </table>
+</div>
+<script>
+    let app = new Vue({
+        el: '#app',
+        data: function () {
+            return {
+                posts: [],
+            }
+        },
+        mounted() {
+            let vm = this;
+            axios.get('https://jsonplaceholder.typicode.com/posts').then(function (e) {
+                vm.posts = e.data;
+            });
+        }
+    })
+</script>
+</body>
+</html>
